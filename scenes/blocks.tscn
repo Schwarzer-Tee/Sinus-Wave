@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmfqrsgdu60s8"]
+
+[ext_resource type="Shader" path="res://shader.gdshader" id="1_6kq1d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k01sj"]
+render_priority = 0
+shader = ExtResource("1_6kq1d")
+
+[sub_resource type="BoxMesh" id="BoxMesh_p4j2u"]
+material = SubResource("ShaderMaterial_k01sj")
+
+[node name="blocks" type="Node3D"]
+
+[node name="block" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_p4j2u")

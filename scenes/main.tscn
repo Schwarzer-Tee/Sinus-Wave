@@ -1,0 +1,180 @@
+[gd_scene load_steps=8 format=3 uid="uid://5ehcsjq3jgcf"]
+
+[ext_resource type="MeshLibrary" uid="uid://c2xak65fqny3c" path="res://mesh-libs/block-mesh-lib.tres" id="1_14o01"]
+[ext_resource type="Script" path="res://scripts/grid_map.gd" id="1_t2ki2"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="3_guhgr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fmcg3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_342a1"]
+sky_top_color = Color(0.172002, 0.492226, 0.587647, 1)
+sky_horizon_color = Color(0.499657, 0.673841, 0.845428, 1)
+sky_curve = 0.909429
+ground_bottom_color = Color(0.498039, 0.67451, 0.847059, 1)
+ground_horizon_color = Color(0.498039, 0.67451, 0.847059, 1)
+
+[sub_resource type="Sky" id="Sky_58h7d"]
+sky_material = SubResource("ProceduralSkyMaterial_342a1")
+
+[sub_resource type="Environment" id="Environment_uy1qg"]
+background_mode = 2
+sky = SubResource("Sky_58h7d")
+
+[node name="main" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh_library = ExtResource("1_14o01")
+cell_size = Vector3(1, 1, 1)
+script = ExtResource("1_t2ki2")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+script = ExtResource("3_guhgr")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_fmcg3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0758663, 0.997118, 0, -0.997118, 0.0758663, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uy1qg")
+
+[node name="Gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Gui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="depth" type="HSplitContainer" parent="Gui/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="depth-label" type="Label" parent="Gui/VBoxContainer/depth"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "depth"
+
+[node name="depth-tex" type="TextEdit" parent="Gui/VBoxContainer/depth"]
+custom_minimum_size = Vector2(100, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "888"
+
+[node name="frequency" type="HSplitContainer" parent="Gui/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="frequency-label" type="Label" parent="Gui/VBoxContainer/frequency"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "frequency"
+
+[node name="frequency-tex" type="TextEdit" parent="Gui/VBoxContainer/frequency"]
+custom_minimum_size = Vector2(100, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "888"
+
+[node name="refreshrate" type="HSplitContainer" parent="Gui/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="refreshrate-label" type="Label" parent="Gui/VBoxContainer/refreshrate"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "refreshrate"
+
+[node name="refreshrate-tex" type="TextEdit" parent="Gui/VBoxContainer/refreshrate"]
+custom_minimum_size = Vector2(100, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "888"
+
+[node name="sizex" type="HSplitContainer" parent="Gui/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="sizex-label" type="Label" parent="Gui/VBoxContainer/sizex"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "size (x)"
+
+[node name="sizex-tex" type="TextEdit" parent="Gui/VBoxContainer/sizex"]
+custom_minimum_size = Vector2(100, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "888"
+
+[node name="sizez" type="HSplitContainer" parent="Gui/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="sizez-label" type="Label" parent="Gui/VBoxContainer/sizez"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "size (z)"
+
+[node name="sizez-tex" type="TextEdit" parent="Gui/VBoxContainer/sizez"]
+custom_minimum_size = Vector2(100, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "888"
+
+[node name="camera" type="HSplitContainer" parent="Gui/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="camera-label" type="Label" parent="Gui/VBoxContainer/camera"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "cam speed"
+
+[node name="cam-tex" type="TextEdit" parent="Gui/VBoxContainer/camera"]
+custom_minimum_size = Vector2(100, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "2"
+
+[node name="set" type="Button" parent="Gui/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 41
+text = "set settings"
+
+[connection signal="timeout" from="Timer" to="GridMap" method="_on_timer_timeout"]
+[connection signal="text_set" from="Gui/VBoxContainer/depth/depth-tex" to="GridMap" method="_on_depthtex_text_set"]
+[connection signal="button_down" from="Gui/VBoxContainer/set" to="GridMap" method="_on_set_button_down"]
+[connection signal="button_down" from="Gui/VBoxContainer/set" to="CharacterBody3D" method="_on_set_button_down"]
