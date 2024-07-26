@@ -15,6 +15,13 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+display_server/driver.linuxbsd="wayland"
+window/vsync/vsync_mode=0
+
 [input]
 
 ui_left={

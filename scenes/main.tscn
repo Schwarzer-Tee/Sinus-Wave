@@ -33,6 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
 script = ExtResource("3_guhgr")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("SphereShape3D_fmcg3")
@@ -173,6 +174,17 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 41
 text = "set settings"
+
+[node name="fps" type="Label" parent="Gui"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 37
+text = "144"
 
 [connection signal="timeout" from="Timer" to="GridMap" method="_on_timer_timeout"]
 [connection signal="text_set" from="Gui/VBoxContainer/depth/depth-tex" to="GridMap" method="_on_depthtex_text_set"]

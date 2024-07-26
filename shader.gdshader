@@ -1,7 +1,7 @@
 shader_type spatial;
 
 varying vec3 pos;
-void vertex() {	
+void vertex() {
     pos = mat3(MODEL_MATRIX) * -VERTEX;
     pos = pos - NODE_POSITION_WORLD;
 }

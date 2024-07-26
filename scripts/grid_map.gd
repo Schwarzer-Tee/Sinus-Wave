@@ -52,7 +52,7 @@ func _on_timer_timeout() -> void:
 	if counter > 9223372036854775800:
 		counter = 0
 	pass # Replace with function body.
-
+	$"../Gui/fps".text = str(Engine.get_frames_per_second()) + " fps"
 
 
 
