@@ -21,6 +21,7 @@ func _unhandled_input(event):
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	$"../Gui/campos".text = str(Vector3i(position)) + " cam pos"
 	var multi = float(cam_tex.text)
 	SPEED = 25 * multi
 	if not is_on_floor():

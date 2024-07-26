@@ -36,14 +36,22 @@ func _process(delta: float) -> void:
 		
 	pass
 func sinwave(count):
+	var sizexodd = sizex
+	var sizezodd = sizez
+	if (sizex % 2 != 0):
+		sizexodd+=1
+	if (sizez % 2 != 0):
+		sizezodd+=1
 	clear()
-	for x in range(-sizex/2, sizex/2):
-		for z in range(-sizez/2, sizez/2):
+	for x in range(-sizex/2, sizexodd/2):
+		for z in range(-sizez/2, sizezodd/2):
 			var sinx = sin((x+count)*frequency) * depth
 			var cosy = cos((z+count)*frequency) * depth
 			sinx = (sinx + cosy) / 2   
 			set_cell_item(Vector3i(x,sinx,z),0)
-			pass
+		
+	
+	
 
 
 func _on_timer_timeout() -> void:

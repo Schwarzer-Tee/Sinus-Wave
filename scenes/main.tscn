@@ -8,10 +8,12 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_342a1"]
 sky_top_color = Color(0.172002, 0.492226, 0.587647, 1)
-sky_horizon_color = Color(0.499657, 0.673841, 0.845428, 1)
+sky_horizon_color = Color(0.227736, 0.535135, 0.432198, 1)
 sky_curve = 0.909429
-ground_bottom_color = Color(0.498039, 0.67451, 0.847059, 1)
-ground_horizon_color = Color(0.498039, 0.67451, 0.847059, 1)
+sky_energy_multiplier = 0.2
+ground_bottom_color = Color(0.227451, 0.533333, 0.431373, 1)
+ground_horizon_color = Color(0.227451, 0.533333, 0.431373, 1)
+ground_energy_multiplier = 0.2
 
 [sub_resource type="Sky" id="Sky_58h7d"]
 sky_material = SubResource("ProceduralSkyMaterial_342a1")
@@ -185,6 +187,18 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 37
 text = "144"
+
+[node name="campos" type="Label" parent="Gui"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 50.0
+offset_bottom = 73.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "1"
 
 [connection signal="timeout" from="Timer" to="GridMap" method="_on_timer_timeout"]
 [connection signal="text_set" from="Gui/VBoxContainer/depth/depth-tex" to="GridMap" method="_on_depthtex_text_set"]
