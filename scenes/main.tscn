@@ -25,7 +25,7 @@ sky = SubResource("Sky_58h7d")
 [node name="main" type="Node3D"]
 
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.501, 0)
 mesh_library = ExtResource("1_14o01")
 cell_size = Vector3(1, 1, 1)
 script = ExtResource("1_t2ki2")
